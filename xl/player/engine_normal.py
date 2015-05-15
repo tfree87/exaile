@@ -82,9 +82,10 @@ class NormalPlayer(_base.ExailePlayer):
         if settings.get_option("%s/auto_advance" % self._name, True):
             track = self.queue.get_next()
             if track:
-                uri = track.get_loc_for_io()
-                self._pipe.set_property("uri", uri)
-                self._buffered_track = track
+                #uri = track.get_loc_for_io()
+                #self._pipe.set_property("uri", uri)
+                #self._buffered_track = track
+                pass
             
 
     def _handle_message(self, bus, message, reading_tag = False):
