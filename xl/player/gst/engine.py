@@ -567,6 +567,7 @@ class AudioStream(object):
         
         elif message.type == Gst.MessageType.EOS and \
             not self.get_gst_state() == Gst.State.PAUSED:
+            self.fader.stop()
             self.engine._eos_func(self)
         
         elif message.type == Gst.MessageType.STREAM_START and \
