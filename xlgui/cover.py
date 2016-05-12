@@ -811,7 +811,6 @@ class CoverWindow(object):
         self.builder.connect_signals(self)
 
         self.cover_window = self.builder.get_object('CoverWindow')
-        self.cover_window.connect('key-press-event', self.on_key_press)
         self.layout = self.builder.get_object('layout')
         self.toolbar = self.builder.get_object('toolbar')
         self.save_as_button = self.builder.get_object('save_as_button')
