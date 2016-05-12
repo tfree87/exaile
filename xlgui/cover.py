@@ -811,6 +811,7 @@ class CoverWindow(object):
         self.builder.connect_signals(self)
 
         self.cover_window = self.builder.get_object('CoverWindow')
+        self.cover_window.connect('key-press-event', self.on_key_press)
         self.layout = self.builder.get_object('layout')
         self.toolbar = self.builder.get_object('toolbar')
         self.save_as_button = self.builder.get_object('save_as_button')
@@ -919,6 +920,13 @@ class CoverWindow(object):
         height_ratio = float(self.image_original_pixbuf.get_height()) / \
                              self.available_image_height()
         self.image_ratio = 1 / max(1, width_ratio, height_ratio)
+
+    def on_key_press(self, widget, event, data=None):
+        """
+            Closes the cover window when the escape key is pressed
+        """
+        if event.keyval == Gdk.KEY_Escape:
+            widget.hide()
 
     def on_save_as_button_clicked(self, widget):
         """
